@@ -1,0 +1,76 @@
+name: RA GEO ledger monthly update
+
+on:
+  workflow_dispatch:
+    inputs:
+      since_days:
+        description: "Recent-day window for manual update"
+        required: true
+        default: "30"
+      retmax:
+        description: "Maximum GEO records to request"
+        required: true
+        default: "500"
+  schedule:
+    - cron: "0 1 1 * *"
+
+concurrency:
+  group: ra-geo-ledger-monthly
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    permissions:
+      contents: write
+    env:
+      NCBI_EMAIL: ${{ secrets.NCBI_EMAIL }}
+      NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate code
+        run: |
+          python -m py_compile scripts/build_ra_geo_ledger.py
+          python -m unittest discover -s tests -v
+
+      - name: Run monthly update
+        shell: bash
+        run: |
+          SINCE_DAYS="${{ inputs.since_days }}"
+          RETMAX="${{ inputs.retmax }}"
+          if [ -z "${SINCE_DAYS}" ]; then
+            SINCE_DAYS="30"
+          fi
+          if [ -z "${RETMAX}" ]; then
+            RETMAX="500"
+          fi
+          python scripts/build_ra_geo_ledger.py \
+            --since-days "${SINCE_DAYS}" \
+            --retmax "${RETMAX}" \
+            --include-existing \
+            --state-file data/ra_geo_backfill_state.json \
+            --write-monthly-update \
+            --max-samples-per-series 250 \
+            --sample-workers 4 \
+            --validate-csv
+
+      - name: Commit ledger updates
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ra_geo_transcriptome_datasets.csv data/ra_geo_latest_monthly_update.csv data/monthly/*.csv data/ra_geo_backfill_state.json
+          if git diff --cached --quiet; then
+            echo "No ledger changes to commit."
+          else
+            git commit -m "Update RA GEO monthly ledger"
+            git push
+          fi
