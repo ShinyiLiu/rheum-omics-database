@@ -33,7 +33,6 @@ NCBI_MIN_INTERVAL_SECONDS = 0.45
 FIELDS = [
     "accession",
     "title",
-    "summary",
     "organism",
     "technology",
     "geo_study_type",
@@ -615,7 +614,6 @@ def row_for_record(record: GeoRecord) -> dict[str, str] | None:
     return {
         "accession": record.accession,
         "title": record.title,
-        "summary": record.summary,
         "organism": record.organism,
         "technology": technology,
         "geo_study_type": geo_study_type or record.geo_study_type,

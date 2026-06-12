@@ -75,6 +75,8 @@ RA=10; control=6; other/unclear=4; total=20
 RA=unknown; control=unknown; total=24
 ```
 
+The CSV keeps the GEO `title` but omits the long GEO `summary` field to keep the ledger readable. Use the `url` column to open the source GEO page when the full abstract/summary is needed.
+
 `sample_count_confidence` is:
 
 - `high`: GSM metadata supports per-sample RA/control parsing.
