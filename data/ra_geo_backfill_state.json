@@ -23,6 +23,17 @@
       "started_at": "2026-06-12T09:49:55.087932+00:00",
       "status": "completed",
       "warnings": []
+    },
+    {
+      "candidate_gse_count": 7,
+      "final_csv_rows": 203,
+      "finished_at": "2026-07-01T05:22:17.754901+00:00",
+      "queried_geo_ids": 8,
+      "rows_written_for_window": 5,
+      "since_days": 30,
+      "started_at": "2026-07-01T05:22:06.908590+00:00",
+      "status": "completed",
+      "warnings": []
     }
   ],
   "version": 1,
