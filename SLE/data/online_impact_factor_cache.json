@@ -1,0 +1,41 @@
+{
+  "journals": {
+    "arthritisandrheumatism": {
+      "impact_factor": "6",
+      "journal": "Arthritis and rheumatism",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=Arthritis+and+rheumatism",
+      "year": "2025"
+    },
+    "kidneydiseasesbaselswitzerland": {
+      "impact_factor": "6",
+      "journal": "Kidney diseases (Basel, Switzerland)",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=Kidney+diseases+%28Basel%2C+Switzerland%29",
+      "year": "2025"
+    },
+    "nephrologydialysistransplantationofficialpublicationoftheeuropeandialysisandtransplantassociationeuropeanrenalassociation": {
+      "impact_factor": "6",
+      "journal": "Nephrology, dialysis, transplantation : official publication of the European Dialysis and Transplant Association - European Renal Association",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=Nephrology%2C+dialysis%2C+transplantation+%3A+official+publication+of+the+European+Dialysis+and+Transplant+Association+-+European+Renal+Association",
+      "year": "2025"
+    },
+    "sciencenewyorkny": {
+      "impact_factor": "6",
+      "journal": "Science (New York, N.Y.)",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=Science+%28New+York%2C+N.Y.%29",
+      "year": "2025"
+    },
+    "toxicologyinvitroaninternationaljournalpublishedinassociationwithbibra": {
+      "impact_factor": "6",
+      "journal": "Toxicology in vitro : an international journal published in association with BIBRA",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=Toxicology+in+vitro+%3A+an+international+journal+published+in+association+with+BIBRA",
+      "year": "2025"
+    }
+  },
+  "updated_at": "2026-07-10T17:30:18.720067+00:00",
+  "version": 1
+}

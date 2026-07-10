@@ -1,0 +1,27 @@
+{
+  "journals": {
+    "arthritisandrheumatism": {
+      "impact_factor": "6",
+      "journal": "Arthritis and rheumatism",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=Arthritis+and+rheumatism",
+      "year": "2025"
+    },
+    "theembojournal": {
+      "impact_factor": "6",
+      "journal": "The EMBO journal",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=The+EMBO+journal",
+      "year": "2025"
+    },
+    "thejournalofclinicalinvestigation": {
+      "impact_factor": "6",
+      "journal": "The Journal of clinical investigation",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=The+Journal+of+clinical+investigation",
+      "year": "2025"
+    }
+  },
+  "updated_at": "2026-07-10T18:30:54.887730+00:00",
+  "version": 1
+}

@@ -1,0 +1,24 @@
+﻿accession,decision,reason,title,organism,geo_study_type
+GSE7451,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Primary Sjogren's syndrome and control whole saliva,Homo sapiens,Expression profiling by array
+GSE23117,included,符合人类 pSS bulk RNA-seq/expression array 纳入规则，已补充至总表,Gene expression in minor salivary gland of patients with Sjogren's syndrome (SS) and control,Homo sapiens,Expression profiling by array
+GSE40568,included,符合人类 pSS bulk RNA-seq/expression array 纳入规则，已补充至总表,DNA microarray analysis of labial salivary glands in IgG4-related disease – comparison with Sjögren’s syndrome,Homo sapiens,Expression profiling by array
+GSE40611,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Gene expression data of parotid tissue from Primary Sjogren’s Syndrome and controls,Homo sapiens,Expression profiling by array
+GSE48378,included,符合人类 pSS bulk RNA-seq/expression array 纳入规则，已补充至总表,PBMCs from patients with Sjögren's syndrome and healthy controls,Homo sapiens,Expression profiling by array
+GSE51092,included,符合人类 pSS bulk RNA-seq/expression array 纳入规则，已补充至总表,Variants at multiple loci implicated in both innate and adaptive immune responses are associated with Sjögren’s syndrome,Homo sapiens,Expression profiling by array
+GSE66795,included,符合人类 pSS bulk RNA-seq/expression array 纳入规则，已补充至总表,A transcriptional signature of fatigue derived from patients with primary Sjögren's Syndrome,Homo sapiens,Expression profiling by array
+GSE80805,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Microarray analysis of minor salivary glands from patients with primary Sjögren’s syndrome (SS) or non-SS,Homo sapiens,Expression profiling by array
+GSE84844,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Multi-omics profiling of patients with primary Sjogren's syndrome,Homo sapiens,Expression profiling by array
+GSE93683,already_present,候选登录号已存在于对应疾病总表，无需重复添加,CD8 T-cells from pSS patients and human healthy volunteers,Homo sapiens,Expression profiling by array
+GSE127952,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Gene expression in minor salivary gland of female patients with primary Sjögren’s syndrome (pSS) and healthy volunteers,Homo sapiens,Expression profiling by array
+GSE135635,already_present,候选登录号已存在于对应疾病总表，无需重复添加,"RNA-sequencing in plasmacytoid dendritic cells from patients with primary Sjogren's syndrome (pSS), non-Sjogren's sicca (nSS), and healthy donors (HC)",Homo sapiens,Expression profiling by high throughput sequencing
+GSE135809,included,符合人类 pSS bulk RNA-seq/expression array 纳入规则，已补充至总表,Transcriptome data of B cells in patients with primary Sjögren's syndrome,Homo sapiens,Expression profiling by array
+GSE140161,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Systems biology demonstrates the predominant role of circulating interferon-alpha in primary Sjögren's syndrome and a genetic association with the class II HLA DQ locus,Homo sapiens,Expression profiling by array
+GSE143153,included,符合人类 pSS bulk RNA-seq/expression array 纳入规则，已补充至总表,Microarray analysis of salivary gland CD4+ T cells,Homo sapiens,Expression profiling by array
+GSE154926,included,符合人类 pSS bulk RNA-seq/expression array 纳入规则，已补充至总表,Bulk RNA sequencing in minor salivary glands of Brazilian patients with primary Sjögren’s syndrome (SS) and healthy volunteers,Homo sapiens,Expression profiling by high throughput sequencing
+GSE159574,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Transcriptome sequencing reveals potential roles of ICOS in primary Sjögren’s syndrome,Homo sapiens,Expression profiling by high throughput sequencing
+GSE164885,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Differential lncRNA expression profile and function analysis in primary Sjogren’s syndrome,Homo sapiens,Expression profiling by high throughput sequencing
+GSE171896,already_present,候选登录号已存在于对应疾病总表，无需重复添加,CXCR2 may serve as a useful index of disease activity in interstitial lung disease associated with primary Sjögren’s syndrome,Homo sapiens,Expression profiling by high throughput sequencing
+GSE173808,already_present,候选登录号已存在于对应疾病总表，无需重复添加,The transcriptome of paired major and minor salivary gland tissue in patients with primary Sjögren's syndrome,Homo sapiens,Expression profiling by high throughput sequencing
+GSE200020,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Deciphering the role of cDC2s in Sjogren’s Syndrome: transcriptomic profile reveals altered antigen processing and uptake associated with IFN-signatures and autoimmunity,Homo sapiens,Expression profiling by high throughput sequencing
+GSE208260,already_present,候选登录号已存在于对应疾病总表，无需重复添加,The transcriptome of paired major and minor salivary gland tissue in patients with primary Sjögren's syndrome,Homo sapiens,Expression profiling by high throughput sequencing
+GSE272410,included,符合人类 pSS bulk RNA-seq/expression array 纳入规则，已补充至总表,Molecular and spatial analysis unveils the functional basis of tertiary lymphoid structures in Sjogren’s syndrome[bulk RNA-seq],Homo sapiens,Expression profiling by high throughput sequencing
