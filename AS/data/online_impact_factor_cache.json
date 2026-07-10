@@ -1,0 +1,48 @@
+{
+  "journals": {
+    "arthritisandrheumatism": {
+      "impact_factor": "6",
+      "journal": "Arthritis and rheumatism",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=Arthritis+and+rheumatism",
+      "year": "2025"
+    },
+    "bmcmusculoskeletaldisorders": {
+      "impact_factor": "6",
+      "journal": "BMC musculoskeletal disorders",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=BMC+musculoskeletal+disorders",
+      "year": "2025"
+    },
+    "frontiersingenetics": {
+      "impact_factor": "6",
+      "journal": "Frontiers in genetics",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=Frontiers+in+genetics",
+      "year": "2025"
+    },
+    "frontiersinmolecularbiosciences": {
+      "impact_factor": "6",
+      "journal": "Frontiers in molecular biosciences",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=Frontiers+in+molecular+biosciences",
+      "year": "2025"
+    },
+    "journaloforthopaedicsurgeryandresearch": {
+      "impact_factor": "6",
+      "journal": "Journal of orthopaedic surgery and research",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=Journal+of+orthopaedic+surgery+and+research",
+      "year": "2025"
+    },
+    "rmdopen": {
+      "impact_factor": "6",
+      "journal": "RMD open",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=RMD+open",
+      "year": "2025"
+    }
+  },
+  "updated_at": "2026-06-24T16:45:13.545992+00:00",
+  "version": 1
+}

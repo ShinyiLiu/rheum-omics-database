@@ -1,0 +1,14 @@
+﻿accession,decision,reason,title,organism,geo_study_type
+GSE11886,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Gene expression analysis of macrophages from ankylosing spondylitis patients reveals interferon-gamma dysregulation,Homo sapiens,Expression profiling by array
+GSE18781,excluded,GEO 仅明确为更宽泛的 axial spondyloarthropathy/SpA，且混有结节病队列；未提供可分离的强直性脊柱炎诊断依据,Gene Expression in Inflammatory Diseases,Homo sapiens,Expression profiling by array
+GSE25101,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Expression profiling in whole blood in ankylosing spondylitis patients and controls,Homo sapiens,Expression profiling by array
+GSE39340,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Indentification of special gene expressions in synovial tissues of rheumatoid arthritis,Homo sapiens,Expression profiling by array
+GSE41038,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Ankylosing spondylitis vs control synovial biopsies,Homo sapiens,Expression profiling by array
+GSE73754,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Sexual Dimorphism in the Th17 Signature of Ankylosing Spondylitis,Homo sapiens,Expression profiling by array
+GSE134290,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Expression data of mesenchymal stem cells (MSCs) obtained from spinal entheseal tissues in groups of control and patient with ankylosing spondylitis (AS),Homo sapiens,Expression profiling by array
+GSE141646,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Transcriptome analysis of ankylosing spondylitis patients before and after TNF-α inhibitor therapy reveals the pathways affected,Homo sapiens,Expression profiling by high throughput sequencing
+GSE153310,included,符合人类 AS bulk RNA-seq/expression array 纳入规则，已补充至总表,Single-nucleotide-polymorphism-adjacent super enhancer network mediates enhanced osteogenic differentiation of mesenchymal stem cells in ankylosing spondylitis [RNA-seq],Homo sapiens,Expression profiling by high throughput sequencing
+GSE181364,already_present,候选登录号已存在于对应疾病总表，无需重复添加,The potential mechanism of ankylosing spondylitis,Homo sapiens,Expression profiling by high throughput sequencing
+GSE212613,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Aberrant lncRNA–mRNA Expression Profile and Function Networks during the Adipogenesis of Mesenchymal Stem Cells from Patients with Ankylosing Spondylitis,Homo sapiens,Expression profiling by high throughput sequencing
+GSE243689,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Ankylosing spondylitis patients present a distinct CD8 T-cell subset with osteogenic and cytotoxic potential,Homo sapiens,Expression profiling by high throughput sequencing
+GSE299639,already_present,候选登录号已存在于对应疾病总表，无需重复添加,Integrated long-read transcriptomic profiling of peripheral blood from ankylosing spondylitis patients reveals regulatory shifts and core genes associated with programmed cell death,Homo sapiens,Expression profiling by high throughput sequencing

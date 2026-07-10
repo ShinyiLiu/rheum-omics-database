@@ -1,0 +1,172 @@
+name: Rheumatic disease GEO ledgers monthly update
+
+on:
+  workflow_dispatch:
+    inputs:
+      disease:
+        description: "Disease ledger to update"
+        required: true
+        default: "all"
+        type: choice
+        options:
+          - all
+          - RA
+          - SLE
+          - AS
+          - pSS
+      since_days:
+        description: "Recent-day window for manual update"
+        required: true
+        default: "30"
+      retmax:
+        description: "Maximum GEO records to request per disease"
+        required: true
+        default: "500"
+  schedule:
+    - cron: "0 1 1 * *"
+
+concurrency:
+  group: rheum-omics-geo-ledgers-monthly
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  NCBI_EMAIL: ${{ secrets.NCBI_EMAIL }}
+  NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      matrix: ${{ steps.select.outputs.matrix }}
+      since_days: ${{ steps.select.outputs.since_days }}
+      retmax: ${{ steps.select.outputs.retmax }}
+    steps:
+      - name: Build disease matrix
+        id: select
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          DISEASE="${{ inputs.disease }}"
+          SINCE_DAYS="${{ inputs.since_days }}"
+          RETMAX="${{ inputs.retmax }}"
+
+          if [ -z "${DISEASE}" ]; then DISEASE="all"; fi
+          if [ -z "${SINCE_DAYS}" ]; then SINCE_DAYS="30"; fi
+          if [ -z "${RETMAX}" ]; then RETMAX="500"; fi
+
+          case "${DISEASE}" in
+            all)
+              MATRIX='{"include":[{"disease":"RA","directory":"RA","script":"build_ra_geo_ledger.py","prefix":"ra"},{"disease":"SLE","directory":"SLE","script":"build_sle_geo_ledger.py","prefix":"sle"},{"disease":"AS","directory":"AS","script":"build_as_geo_ledger.py","prefix":"as"},{"disease":"pSS","directory":"pss","script":"build_pss_geo_ledger.py","prefix":"pss"}]}'
+              ;;
+            RA)
+              MATRIX='{"include":[{"disease":"RA","directory":"RA","script":"build_ra_geo_ledger.py","prefix":"ra"}]}'
+              ;;
+            SLE)
+              MATRIX='{"include":[{"disease":"SLE","directory":"SLE","script":"build_sle_geo_ledger.py","prefix":"sle"}]}'
+              ;;
+            AS)
+              MATRIX='{"include":[{"disease":"AS","directory":"AS","script":"build_as_geo_ledger.py","prefix":"as"}]}'
+              ;;
+            pSS)
+              MATRIX='{"include":[{"disease":"pSS","directory":"pss","script":"build_pss_geo_ledger.py","prefix":"pss"}]}'
+              ;;
+            *)
+              echo "Unsupported disease selection: ${DISEASE}" >&2
+              exit 2
+              ;;
+          esac
+
+          echo "matrix=${MATRIX}" >> "${GITHUB_OUTPUT}"
+          echo "since_days=${SINCE_DAYS}" >> "${GITHUB_OUTPUT}"
+          echo "retmax=${RETMAX}" >> "${GITHUB_OUTPUT}"
+
+  update:
+    needs: prepare
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate ${{ matrix.disease }} ledger code
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile "${{ matrix.directory }}/scripts/${{ matrix.script }}"
+          python -m unittest discover -s "${{ matrix.directory }}/tests" -v
+
+      - name: Update ${{ matrix.disease }} ledger
+        shell: bash
+        run: |
+          set -euo pipefail
+          python "${{ matrix.directory }}/scripts/${{ matrix.script }}" \
+            --since-days "${{ needs.prepare.outputs.since_days }}" \
+            --retmax "${{ needs.prepare.outputs.retmax }}" \
+            --include-existing \
+            --state-file "${{ matrix.directory }}/data/${{ matrix.prefix }}_geo_backfill_state.json" \
+            --write-monthly-update \
+            --online-impact-factor-lookup \
+            --impact-factor-cache "${{ matrix.directory }}/data/online_impact_factor_cache.json" \
+            --max-samples-per-series 250 \
+            --sample-workers 4 \
+            --validate-csv
+
+      - name: Stage ${{ matrix.disease }} data artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "artifact/${{ matrix.directory }}"
+          cp -a "${{ matrix.directory }}/data" "artifact/${{ matrix.directory }}/data"
+
+      - name: Upload ${{ matrix.disease }} data artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ledger-${{ matrix.prefix }}
+          path: artifact
+          if-no-files-found: error
+          retention-days: 1
+
+  commit:
+    needs:
+      - prepare
+      - update
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Download updated ledger data
+        uses: actions/download-artifact@v4
+        with:
+          pattern: ledger-*
+          path: .
+          merge-multiple: true
+
+      - name: Commit ledger updates
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- RA/data SLE/data AS/data pss/data
+          if git diff --cached --quiet; then
+            echo "No ledger changes to commit."
+          else
+            git commit -m "Update rheumatic disease GEO monthly ledgers"
+            git push
+          fi
