@@ -989,7 +989,9 @@ def classify_sample_group(text: str) -> str:
         return "unclear"
     if any(term.casefold() in folded for term in RA_TERMS if term.casefold() != "ra"):
         return "ra"
-    if re.search(r"ra", folded):
+    if re.search(r"(?<![a-z0-9])ra[- _]?fls(?![a-z0-9])", folded) or "mh7a" in folded:
+        return "ra"
+    if re.search(r"\bra\b", folded):
         disease_context = any(token in folded for token in ["patient", "synovium", "synovial", "arthritis", "pbmc", "blood"])
         if disease_context:
             return "ra"
@@ -1014,7 +1016,7 @@ def classify_sample_group(text: str) -> str:
         return "control"
     if re.search(r"(?<![a-z0-9])hd(?![a-z0-9])", folded):
         return "control"
-    if re.search(r"(control|healthy|normal)", folded):
+    if re.search(r"\b(control|healthy|normal)\b", folded):
         return "control"
     return "unclear"
 
