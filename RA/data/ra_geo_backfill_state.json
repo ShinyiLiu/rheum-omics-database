@@ -23,6 +23,17 @@
       "started_at": "2026-06-12T09:49:55.087932+00:00",
       "status": "completed",
       "warnings": []
+    },
+    {
+      "candidate_gse_count": 6,
+      "final_csv_rows": 204,
+      "finished_at": "2026-07-10T20:12:52.299752+00:00",
+      "queried_geo_ids": 7,
+      "rows_written_for_window": 4,
+      "since_days": 30,
+      "started_at": "2026-07-10T20:12:02.605961+00:00",
+      "status": "completed",
+      "warnings": []
     }
   ],
   "version": 1,
@@ -550,6 +561,18 @@
       "rows_written_for_window": 10,
       "start_date": "2026-04-01",
       "started_at": "2026-06-12T11:47:11.579737+00:00",
+      "status": "completed",
+      "warnings": []
+    },
+    "2026-06-01..2026-06-30": {
+      "candidate_gse_count": 7,
+      "end_date": "2026-06-30",
+      "final_csv_rows": 204,
+      "finished_at": "2026-07-10T20:15:20.875170+00:00",
+      "queried_geo_ids": 8,
+      "rows_written_for_window": 5,
+      "start_date": "2026-06-01",
+      "started_at": "2026-07-10T20:14:21.403550+00:00",
       "status": "completed",
       "warnings": []
     }

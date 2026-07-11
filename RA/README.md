@@ -35,6 +35,12 @@ python .\scripts\build_ra_geo_ledger.py --retmax 200 --out .\data\ra_geo_transcr
 python .\scripts\build_ra_geo_ledger.py --since-days 30 --retmax 200
 ```
 
+检索截至指定日期的最近 30 天（例如截至 2026-06-30）：
+
+```powershell
+python .\scripts\build_ra_geo_ledger.py --start-date 2026-06-01 --end-date 2026-06-30 --retmax 500 --include-existing --state-file .\data\ra_geo_backfill_state.json --write-monthly-update --max-samples-per-series 250 --sample-workers 4 --validate-csv
+```
+
 运行固定发布日期窗口：
 
 ```powershell
@@ -180,7 +186,7 @@ GEO 元数据并非完全标准化。脚本采用保守策略：分组标签不�
 
 使用 `--backfill-quarterly-local` 在本地运行从 `2016-01-01` 至今的完整回填。脚本每次处理一个季度，并在每个窗口完成后写入状态，因此中断后可以继续运行，而无需重复已完成的季度。
 
-现有状态文件已经记录已完成的窗口，默认会跳过这些窗口。只有确实需要重新运行固定窗口时才使用 `--force-window`。
+现有状态文件已经记录已完成的窗口（含 `2026-06-01` 至 `2026-06-30`），默认会跳过这些窗口。只有确实需要重新运行固定窗口时才使用 `--force-window`。
 
 季度序列从以下窗口开始：
 
@@ -201,6 +207,12 @@ GEO 元数据并非完全标准化。脚本采用保守策略：分组标签不�
 
 该工作流位于仓库根目录，每月 1 日 01:00 UTC（北京时间 09:00）运行。各疾病通过并行矩阵任务更新并上传短期数据构件，最后合并为一次提交。若要手动仅运行 RA，请通过 `workflow_dispatch` 设置 `disease=RA`；也可以自定义 `since_days` 和 `retmax`。
 
+对应的本地命令为：
+
+```powershell
+python .\scripts\build_ra_geo_ledger.py --start-date 2026-06-01 --end-date 2026-06-30 --retmax 500 --include-existing --state-file .\data\ra_geo_backfill_state.json --write-monthly-update --online-impact-factor-lookup --validate-csv --ncbi-email you@example.com --ncbi-api-key YOUR_KEY
+```
+
 月度更新写入：
 
 - `data/ra_geo_transcriptome_datasets.csv`：长期累计总表
@@ -209,7 +221,9 @@ GEO 元数据并非完全标准化。脚本采用保守策略：分组标签不�
 - `data/online_impact_factor_cache.json`：可复用的在线影响因子缓存
 - `data/monthly/impact_factor_audit_YYYY-MM.md`：影响因子查询审计报告
 
-月度更新表包含该次最近 30 天检索窗口内所有通过过滤的记录，而不只是新发现的登录号。
+仓库当前最近一次月度归档为 `data/monthly/ra_geo_monthly_update_2026-06.csv`（检索窗口 `2026-06-01` 至 `2026-06-30`，命中 5 条），对应审计报告为 `data/monthly/impact_factor_audit_2026-06.md`。
+
+月度更新表包含该次检索时间窗内所有通过过滤的记录，而不只是新发现的登录号。
 
 可选的 GitHub Actions 密钥：
 

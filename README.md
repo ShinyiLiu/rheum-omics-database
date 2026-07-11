@@ -6,12 +6,12 @@
 
 | 缩写 | 疾病 | 目录 | 主数据表 | 当前记录数 |
 | --- | --- | --- | --- | ---: |
-| RA | 类风湿关节炎（rheumatoid arthritis） | [`RA/`](RA/) | [`ra_geo_transcriptome_datasets.csv`](RA/data/ra_geo_transcriptome_datasets.csv) | 203 |
+| RA | 类风湿关节炎（rheumatoid arthritis） | [`RA/`](RA/) | [`ra_geo_transcriptome_datasets.csv`](RA/data/ra_geo_transcriptome_datasets.csv) | 204 |
 | SLE | 系统性红斑狼疮（systemic lupus erythematosus，包含狼疮性肾炎） | [`SLE/`](SLE/) | [`sle_geo_transcriptome_datasets.csv`](SLE/data/sle_geo_transcriptome_datasets.csv) | 102 |
 | AS | 强直性脊柱炎（ankylosing spondylitis） | [`AS/`](AS/) | [`as_geo_transcriptome_datasets.csv`](AS/data/as_geo_transcriptome_datasets.csv) | 16 |
 | pSS | 原发性干燥综合征（primary Sjögren's syndrome） | [`pss/`](pss/) | [`pss_geo_transcriptome_datasets.csv`](pss/data/pss_geo_transcriptome_datasets.csv) | 35 |
 
-> 上表是仓库当前数据快照。各子库最近一次写入的 `search_date` 均为 2026-07-11；记录数会随数据库更新而变化。
+> 上表是仓库当前数据快照。各子库最近一次写入的 `search_date` 均为 2026-07-11；最近一次月度归档为 2026-06（检索窗口 `2026-06-01` 至 `2026-06-30`）；记录数会随数据库更新而变化。
 
 纳入的数据类型为：
 
@@ -62,7 +62,7 @@
 
 | 疾病 | GSE 数量 | bulk RNA-seq | expression array | GEO 发布日期范围 |
 | --- | ---: | ---: | ---: | --- |
-| RA | 203 | 142 | 61 | 2016-01-27 至 2026-06-30 |
+| RA | 204 | 143 | 61 | 2016-01-27 至 2026-07-01 |
 | SLE | 102 | 45 | 57 | 2006-12-31 至 2026-06-04 |
 | AS | 16 | 10 | 6 | 2008-06-27 至 2025-07-09 |
 | pSS | 35 | 16 | 19 | 2007-12-31 至 2024-07-17 |

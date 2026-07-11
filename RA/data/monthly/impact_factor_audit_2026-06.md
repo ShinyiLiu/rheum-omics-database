@@ -68,6 +68,7 @@ Impact factors in CSV are informational only. Source URLs are kept here or in da
 
 ## Cache matches
 
+- EULAR rheumatology open: 6 (2025); LetPub; https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=EULAR+rheumatology+open
 - The EMBO journal: 6 (2025); LetPub; https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=The+EMBO+journal
 
 ## New online matches

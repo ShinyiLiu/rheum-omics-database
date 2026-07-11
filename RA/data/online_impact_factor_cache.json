@@ -1,5 +1,12 @@
 {
   "journals": {
+    "eularrheumatologyopen": {
+      "impact_factor": "6",
+      "journal": "EULAR rheumatology open",
+      "source": "LetPub",
+      "source_url": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=EULAR+rheumatology+open",
+      "year": "2025"
+    },
     "theembojournal": {
       "impact_factor": "6",
       "journal": "The EMBO journal",
@@ -8,6 +15,6 @@
       "year": "2025"
     }
   },
-  "updated_at": "2026-07-10T19:48:20.614311+00:00",
+  "updated_at": "2026-07-10T20:12:50.332059+00:00",
   "version": 1
 }
