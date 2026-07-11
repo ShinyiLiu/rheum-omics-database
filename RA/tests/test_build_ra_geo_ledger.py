@@ -67,6 +67,8 @@ class LedgerRulesTest(unittest.TestCase):
 
     def test_sample_group_classification(self):
         self.assertEqual(classify_sample_group("rheumatoid arthritis patient synovium"), "ra")
+        self.assertEqual(classify_sample_group("RA-FLS siFUNDC1 1"), "ra")
+        self.assertEqual(classify_sample_group("MH7A lutein treated sample"), "ra")
         self.assertEqual(classify_sample_group("healthy control PBMC"), "control")
         self.assertEqual(classify_sample_group("retinoic acid treated sample"), "unclear")
 

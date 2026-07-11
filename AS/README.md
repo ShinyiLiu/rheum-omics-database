@@ -35,6 +35,12 @@ python .\scripts\build_as_geo_ledger.py --retmax 200 --out .\data\as_geo_transcr
 python .\scripts\build_as_geo_ledger.py --since-days 30 --retmax 200
 ```
 
+检索截至指定日期的最近 30 天（例如截至 2026-06-30）：
+
+```powershell
+python .\scripts\build_as_geo_ledger.py --start-date 2026-06-01 --end-date 2026-06-30 --retmax 500 --include-existing --state-file .\data\as_geo_backfill_state.json --write-monthly-update --max-samples-per-series 250 --sample-workers 4 --validate-csv
+```
+
 运行固定发布日期窗口：
 
 ```powershell
@@ -180,7 +186,7 @@ GEO 元数据并非完全标准化。脚本采用保守策略：分组标签不�
 
 使用 `--backfill-quarterly-local` 在本地运行从 `2016-01-01` 至今的回填。脚本每次处理一个季度，并在每个窗口完成后写入状态，因此中断后可以继续运行，而无需重复已完成的季度。如需更早的记录，请选择更早的开始日期。
 
-当前状态文件包含最近更新状态，但尚无已完成的固定季度窗口。未来写入的已完成窗口默认会被跳过。只有确实需要重新运行固定窗口时才使用 `--force-window`。
+当前状态文件已记录固定窗口 `2026-06-01` 至 `2026-06-30`，但尚无从 2016 年起的历史季度回填窗口。未来写入的已完成窗口默认会被跳过。只有确实需要重新运行固定窗口时才使用 `--force-window`。
 
 季度序列从以下窗口开始：
 
@@ -204,7 +210,7 @@ GEO 元数据并非完全标准化。脚本采用保守策略：分组标签不�
 对应的本地命令为：
 
 ```powershell
-python .\scripts\build_as_geo_ledger.py --since-days 30 --retmax 500 --include-existing --state-file .\data\as_geo_backfill_state.json --write-monthly-update --online-impact-factor-lookup --validate-csv --ncbi-email you@example.com --ncbi-api-key YOUR_KEY
+python .\scripts\build_as_geo_ledger.py --start-date 2026-06-01 --end-date 2026-06-30 --retmax 500 --include-existing --state-file .\data\as_geo_backfill_state.json --write-monthly-update --online-impact-factor-lookup --validate-csv --ncbi-email you@example.com --ncbi-api-key YOUR_KEY
 ```
 
 月度更新写入：
@@ -215,7 +221,9 @@ python .\scripts\build_as_geo_ledger.py --since-days 30 --retmax 500 --include-e
 - `data/online_impact_factor_cache.json`：按需创建或更新的可复用在线影响因子缓存
 - `data/monthly/impact_factor_audit_YYYY-MM.md`：影响因子查询审计报告
 
-月度更新表包含该次最近 30 天检索窗口内所有通过过滤的记录，而不只是新发现的登录号。长期总表中已有 GSE 的 `manual_review` 值会被保留；新采集的月度记录从 `NULL` 开始。
+仓库当前最近一次月度归档为 `data/monthly/as_geo_monthly_update_2026-06.csv`（检索窗口 `2026-06-01` 至 `2026-06-30`，命中 0 条），对应审计报告为 `data/monthly/impact_factor_audit_2026-06.md`。
+
+月度更新表包含该次检索时间窗内所有通过过滤的记录，而不只是新发现的登录号。长期总表中已有 GSE 的 `manual_review` 值会被保留；新采集的月度记录从 `NULL` 开始。
 
 可选的 GitHub Actions 密钥：
 
