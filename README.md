@@ -29,8 +29,11 @@
 ├── AS/                  # 强直性脊柱炎子库
 ├── pss/                 # 原发性干燥综合征子库
 ├── IF reference/        # 本地 JCR 期刊影响因子参考表
+├── .gitignore           # 仓库级忽略规则
 └── README.md
 ```
+
+Git 忽略规则统一维护在仓库根目录 `.gitignore`；各疾病子目录不单独放置 `.gitignore`。
 
 每个疾病目录均包含：
 
