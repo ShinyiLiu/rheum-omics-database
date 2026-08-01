@@ -1,4 +1,17 @@
 {
+  "recent_updates": [
+    {
+      "candidate_gse_count": 0,
+      "final_csv_rows": 16,
+      "finished_at": "2026-08-01T04:16:59.872877+00:00",
+      "queried_geo_ids": 0,
+      "rows_written_for_window": 0,
+      "since_days": 30,
+      "started_at": "2026-08-01T04:16:57.377480+00:00",
+      "status": "completed",
+      "warnings": []
+    }
+  ],
   "version": 1,
   "windows": {
     "2026-06-01..2026-06-30": {
